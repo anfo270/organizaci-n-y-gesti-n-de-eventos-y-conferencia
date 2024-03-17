@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  <ion-button (click)="goBack()">
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-card *ngIf="evento">
+    <ion-card-header>
+      <ion-card-title>{{ evento.Titulo }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-label>Fecha:</ion-label>
+          <ion-text>{{ evento.Fecha }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Hora:</ion-label>
+          <ion-text>{{ evento.Hora }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Lugar:</ion-label>
+          <ion-text>{{ evento.Lugar }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Descripción:</ion-label>
+          <ion-text>{{ evento.Descripcion }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Capacidad:</ion-label>
+          <ion-text>{{ evento.Capacidad }}</ion-text>
+        </ion-item>
+        <ion-item>
+          <ion-label>Inscriptos:</ion-label>
+          <ion-text>{{ evento.Inscriptos }}</ion-text>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-row *ngIf="evento">
+    <ion-col *ngIf="esOrganizador()">
+      <ion-button expand="block" color="primary" (click)="editarEvento()">
+        Editar
+      </ion-button>
+    </ion-col>
+    <ion-col *ngIf="esParticipante()">
+      <ion-button expand="block" color="success" (click)="inscribirse()" *ngIf="!estaInscrito(evento)  && !completo()">
+        Inscribirse
+      </ion-button>
+      <ion-button expand="block" color="danger" (click)="cancelarInscripcion()" *ngIf="estaInscrito(evento)">
+        Cancelar inscripción
+      </ion-button>
+      <ion-button expand="block" color="primary" (click)="irAEncuesta(evento.Id)" [disabled]="!eventoHaPasado(evento)">
+        Ir a encuesta
+      </ion-button>
+
+      <ion-card-title>QR de asistencia</ion-card-title>
+      <qrcode [qrdata]="generateQRValue()" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      <ion-col>
+      </ion-col>
+      <ng-container *ngIf="completo()">
+        <p>Este evento está completo.</p>
+      </ng-container>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-card>
+  <ion-header>
+    <ion-card-title>Login</ion-card-title>
+  </ion-header>
+</ion-card>
+
+<ion-content [fullscreen]="true">
+  <ion-card-content>
+    <!-- Login Form -->
+    <form [formGroup]="FormularioLogin">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="Password" type="password"></ion-input>
+      </ion-item>
+    </form>
+    <br><br>
+    <ion-button (click)="inicio()">Ingresar</ion-button>
+  </ion-card-content>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="end">
+      <ion-button [routerLink]="['/registro']">Registrarse</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

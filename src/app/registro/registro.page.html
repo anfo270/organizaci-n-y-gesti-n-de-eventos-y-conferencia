@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+
+      <ion-card-title>Registro</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <ion-card-content>
+    <form [formGroup]="FormularioRegistro">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="Nombre"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="Password" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Confirmación de contraseña</ion-label>
+        <ion-input formControlName="ConfirmacionPassword" type="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tipo de usuario</ion-label>
+        <ion-select formControlName="TipoUsuario">
+          <ion-select-option value="organizador">Organizador</ion-select-option>
+          <ion-select-option value="participante">Participante</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </form>
+    <ion-button (click)="registrar()">Registrar</ion-button>
+  </ion-card-content>
+</ion-content>

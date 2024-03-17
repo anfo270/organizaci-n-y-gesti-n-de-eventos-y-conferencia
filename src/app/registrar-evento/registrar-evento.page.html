@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Editar Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <form [formGroup]="FormularioEvento">
+      <ion-item>
+        <ion-label position="floating">Título</ion-label>
+        <ion-input formControlName="Titulo" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Lugar</ion-label>
+        <ion-input formControlName="Lugar" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Fecha</ion-label>
+        <ion-input formControlName="Fecha" type="date"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Hora</ion-label>
+        <ion-input formControlName="Hora" type="time"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Descripción</ion-label>
+        <ion-input formControlName="Descripcion" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Capacidad</ion-label>
+        <ion-input formControlName="Capacidad" type="number"></ion-input>
+      </ion-item>
+    </form>
+  </ion-list>
+  <ion-buttons>
+    <ion-button color="success" (click)="agregar()">
+      <ion-icon slot="start" name="save"></ion-icon>Guardar Cambios
+    </ion-button>
+    <ion-button color="danger" [routerLink]="['/crear-eventos']">
+      <ion-icon name="ban-outline"></ion-icon>Cancelar
+    </ion-button>
+  </ion-buttons>
+</ion-content>

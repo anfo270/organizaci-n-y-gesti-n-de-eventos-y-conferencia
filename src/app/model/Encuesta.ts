@@ -1,6 +1,7 @@
-export class Encuesta {
-    constructor(
-        public preguntas: string[],
-        public opcionesRespuesta: string[][]
-    ) { }
+
+export interface Encuesta {
+    eventId: number;
+    calificacion: number;
+    aspectosGustados: string;
+    aspectosMejorar: string;
 }

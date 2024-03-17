@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Editar Evento</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list *ngIf="evento">
+    <ion-item>
+      <ion-label position="floating">Título</ion-label>
+      <ion-input [(ngModel)]="evento.Titulo" name="titulo" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Lugar</ion-label>
+      <ion-input [(ngModel)]="evento.Lugar" name="lugar" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Fecha</ion-label>
+      <ion-input [(ngModel)]="evento.Fecha" name="fecha" type="date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Hora</ion-label>
+      <ion-input [(ngModel)]="evento.Hora" name="hora" type="time"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Descripción</ion-label>
+      <ion-input [(ngModel)]="evento.Descripcion" name="descripcion" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Capacidad</ion-label>
+      <ion-input [(ngModel)]="evento.Capacidad" name="capacidad" type="number"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ion-margin-top ion-text-center">
+    <ion-button color="success" (click)="guardarCambios()">
+      <ion-icon slot="start" name="save"></ion-icon>Guardar Cambios
+    </ion-button>
+    <ion-button color="danger" (click)="cancelar()">
+      <ion-icon slot="start" name="ban-outline"></ion-icon>Cancelar
+    </ion-button>
+  </div>
+</ion-content>
